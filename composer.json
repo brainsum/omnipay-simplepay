@@ -1,0 +1,30 @@
+{
+    "name": "brainsum/omnipay-simplepay",
+    "type": "library",
+    "description": "SimplePay V2 driver for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "simplepay"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { "Omnipay\\SimplePay\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~3.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~3.0",
+        "squizlabs/php_codesniffer": "~3.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
+    },
+    "prefer-stable": true
+}
