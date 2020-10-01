@@ -9,6 +9,8 @@ use Omnipay\Common\AbstractGateway;
  */
 class Gateway extends AbstractGateway {
 
+  const HASH_ALGO = 'sha384';
+
   public function getName() {
     return 'SimplePay';
   }
@@ -53,4 +55,11 @@ class Gateway extends AbstractGateway {
     return $this->createRequest('\Omnipay\SimplePay\Message\QueryRequest', $parameters);
   }
 
+  public function validSignature($signature, $data) {
+    return $signature === $this->getSignature($data);
+  }
+
+  protected function getSignature($dataString) {
+    return base64_encode(hash_hmac(self::HASH_ALGO, $dataString, trim($this->getApiKey()), true));
+  }
 }
