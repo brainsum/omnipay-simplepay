@@ -26,6 +26,10 @@ class QueryResponse extends AbstractResponse implements RedirectResponseInterfac
     return count($sucessful_transactions) == $this->data['totalCount'];
   }
 
+  public function getTransactionIds() {
+    return $this->request->getData()['transactionIds'];
+  }
+
   public function isRedirect() {
     return false;
   }

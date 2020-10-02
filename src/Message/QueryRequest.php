@@ -39,4 +39,7 @@ class QueryRequest extends AbstractRequest {
     return $data;
   }
 
+  public function isSuccessful() {
+    return true;
+  }
 }
