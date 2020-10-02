@@ -67,7 +67,7 @@ class Gateway extends AbstractGateway {
   }
 
   public function validSignature($signature, $data) {
-    return $signature === $this->getSignature($data);
+    return $signature === $this->getSignature(json_encode($data));
   }
 
   protected function getSignature($dataString) {
