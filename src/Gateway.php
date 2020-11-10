@@ -67,6 +67,10 @@ class Gateway extends AbstractGateway {
     return $this->createRequest('\Omnipay\SimplePay\Message\QueryRequest', $parameters);
   }
 
+  public function cancelToken(array $parameters = []) {
+    return $this->createRequest('\Omnipay\SimplePay\Message\TokenCancelRequest', $parameters);
+  }
+
   public function validSignature($signature, $data) {
     return $signature === $this->getSignature(json_encode($data));
   }
