@@ -52,6 +52,7 @@ class Gateway extends AbstractGateway {
   }
 
   public function getConfirmation(array $parameters = []) {
+    $parameters['receiveDate'] = @date("c", time());
     return [
       'signature' => $this->getSignature(json_encode($parameters)),
       'data' => $parameters
