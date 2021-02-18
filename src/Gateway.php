@@ -44,6 +44,10 @@ class Gateway extends AbstractGateway {
   }
 
   public function purchase(array $parameters = []) {
+    return $this->createRequest('\Omnipay\SimplePay\Message\PurchaseRequest', $parameters);
+  }
+
+  public function authorize(array $parameters = []) {
     return $this->createRequest('\Omnipay\SimplePay\Message\AuthorizeRequest', $parameters);
   }
 

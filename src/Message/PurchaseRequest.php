@@ -5,17 +5,9 @@ namespace Omnipay\SimplePay\Message;
 use Omnipay\Common\Exception\InvalidRequestException;
 
 /**
- * Authorize Request
+ * Purchase Request
  */
-class AuthorizeRequest extends AbstractRequest {
-
-  public function setRecurring($value) {
-    return $this->setParameter('recurring', $value);
-  }
-
-  public function getRecurring() {
-    return $this->getParameter('recurring');
-  }
+class PurchaseRequest extends AbstractRequest {
 
   public function setTotal($value) {
     return $this->setParameter('total', $value);
@@ -46,7 +38,7 @@ class AuthorizeRequest extends AbstractRequest {
   }
 
   protected function createResponse($data) {
-    return $this->response = new AuthorizeResponse($this, $data);
+    return $this->response = new PurchaseResponse($this, $data);
   }
 
   public function getData() {
@@ -56,7 +48,6 @@ class AuthorizeRequest extends AbstractRequest {
     $data['currency'] = $this->getCurrency();
     $data['customerEmail'] = $this->getCustomerEmail();
     $data['orderRef'] = $this->getOrderRef();
-    $data['recurring'] = $this->getRecurring();
     $data['language'] = $this->getLanguage();
     $data['items'] = $this->getItems();
 

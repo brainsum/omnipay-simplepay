@@ -73,6 +73,14 @@ abstract class AbstractRequest  extends \Omnipay\Common\Message\AbstractRequest 
     return $this->getParameter('urls');
   }
 
+  public function setItems($value) {
+    return $this->setParameter('items', $value);
+  }
+
+  public function getItems() {
+    return $this->getParameter('items');
+  }
+
   public function setMethods($value) {
     return $this->setParameter('methods', $value);
   }
